@@ -14,7 +14,7 @@ local FileId  = "XXQ9lNewWT"               -- ID файла из вкладки 
 -- Ключ лицензии: юзер задаёт его перед loadstring:
 --   getgenv().Key = "XXXX-XXXX-XXXX"
 --   loadstring(game:HttpGet("<ссылка на лоадер>"))()
-local Key = getgenv().Key or "mtkOUO-qDPdsv-8LaKhv-2BIN4y-7pLS3p-rqCCj3"
+local Key = getgenv().Key or ""
 
 local HttpService = game:GetService("HttpService")
 
@@ -72,6 +72,12 @@ local function post(body)
         return nil
     end
     return data
+end
+
+-- 0) есть ли ключ
+if Key == "" then
+    notify("Нет ключа. Запусти так:\ngetgenv().Key = \"ТВОЙ-КЛЮЧ\"  (перед loadstring)")
+    return
 end
 
 -- 1) init -> sessionid
